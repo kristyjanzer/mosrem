@@ -1,0 +1,1015 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+@import "_mixins/mybase"
+
+::placeholder
+	color: $text
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-weight: normal
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	box-sizing: border-box
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+a
+	color: $text
+	text-decoration: none
+	&:hover
+		color: $text
+		text-decoration: none
+p
+	margin: 0
+	padding: 0
+
+i
+	font-style: normal
+
+li
+	padding: 0
+	margin: 0
+	list-style-type: none
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+	padding: 0
+
+img
+	max-width: 100%
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.ibg
+	background:
+		position: center
+		size: cover
+		repeat: no-repeat
+	position: relative
+.ibg img
+	width: 0
+	height: 0
+	position: absolute
+	top: 0
+	left: 0
+	opacity: 0
+	visibility: hidden
+
+.wrapper
+	overflow: hidden
+	min-height: 100%
+
+.container
+	max-width: 1400px
+	margin: 0 auto
+	padding: 0 50px
+
+// Шапка
+.header
+	position: relative
+	background-color: #f5d21f
+	z-index: 1
+	&__row
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		padding: 30px 0
+	&__column_b
+		flex-direction: column
+
+// Логотип в шапке
+.logo
+	display: flex
+	&__img
+		img
+			max-width: 100%
+	&__text
+		padding: 0 0 0 21px
+		p
+			font-family: "Arial", sans-serif
+			font-size: 34.5px
+			font-weight: bold
+			text-transform: uppercase
+			line-height: 1
+			margin-bottom: 17px
+		span
+			font-size: 15px
+			padding: 0
+			margin: 0
+			line-height: 1.13
+			display: inline-block
+
+// Меню с треугольниками
+.list-d
+	display: flex
+	flex-direction: column
+	margin-bottom: 0
+	li
+		margin: 0 0 10px 0
+		padding: 0 0 0 30px
+		position: relative
+		a
+			font-size: 15px
+			text-decoration: none
+			transition: all .5s ease
+			&::before
+				position: absolute
+				content: ""
+				border-bottom: 6px solid transparent
+				border-left: 6px solid $text
+				border-top: 6px solid transparent
+				top: 8px
+				left: 0
+				transition: all .5s ease
+		&:last-child
+			margin: 0
+
+// Среднее меню в шапке
+.menu
+	&__body
+		display: flex
+		flex-direction: column
+	&__list
+		display: flex
+		justify-content: flex-end
+		font-size: 0
+		padding: 0
+		li
+			padding:
+				top: 0
+				right: 0
+				bottom: 0
+				left: 37px
+			margin: 0
+			list-style-type: none
+			a
+				font-size: 17px
+				font-family: "SegoeUI", sans-serif
+				font-weight: 600
+				color: $text
+				transition: all .5s ease
+				text:
+					decoration: none
+					transform: uppercase
+				&:hover
+					color: $accent
+			&:last-child
+				padding: 0 0 0 5px
+		.sos
+			color: $accent
+	&__flex
+		display: flex
+		justify-content: flex-end
+	&__list-d
+		li
+			&:hover
+				a::before
+						border-left-color: $accent
+			a
+				border-bottom: 1px solid $text
+				&::before
+					border-left: 6px solid $text
+				&:hover
+					color: $accent
+					border-bottom: 1px solid $accent
+
+// Телефон в шапке
+.phone
+	&__body
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+	&__number
+		.fas
+			font-size: 15px
+			padding-right: 30px
+			position: relative
+			bottom: 4px
+			z-index: -1
+	&__tel
+		font-family: "Arial", sans-serif
+		font-weight: bold
+		font-size: 30px
+		line-height: 1.33
+		&:hover
+			text-decoration: none
+			color: $text
+	&__time
+		margin-top: 55px
+		p
+			margin: 0 0 15px 45px
+			font-size: 15px
+			line-height: 15px
+			font-style: italic
+			font-family: "SegoeUI", sans-serif
+			&:last-child
+				margin-bottom: 0
+.phone-number-clone
+	justify-content: center
+	display: flex
+	margin-top: 30px
+	.phone
+		&__number
+			color: #fff
+			.fas
+				bottom: 2px
+				padding-right: 20px
+		&__tel
+			font-size: 20px
+			color: #fff
+
+// Главный экран
+.header-content
+	background-size: cover
+	background-position: center center
+	position: relative
+	&__row
+		display: flex
+		flex-direction: column
+		min-height: 1000px
+	&__body
+		padding-top: 165px
+		display: flex
+		flex-direction: column
+		flex: 1 1 auto
+	&__title
+		margin: 0
+		width: 60%
+		font-family: "PFDinTextPro", sans-serif
+		font-weight: 500
+		font-size: 54px
+		font-weight: 500
+		line-height: 1.07
+	&__list
+		padding-top: 46px
+	&__form
+		padding-top: 103px
+	&__message
+		font-size: 15px
+		padding-top: 18px
+		padding-bottom: 40px
+	&__arrow
+		padding-bottom: 54px
+
+// Перечисление с плюсами
+.list
+	li
+		padding-left: 35px
+		position: relative
+		font-size: 17px
+		line-height: 1.94
+		&::before
+			position: absolute
+			content: '+'
+			top: 0
+			left: 0
+			font-weight: bold
+
+// Форма на главном экране
+.form
+	display: flex
+	input
+		border: none
+		padding: 10px 25px
+		font-family: "SegoeUI", sans-serif
+		font-weight: bold
+		font-size: 15px
+		margin-right: 1px
+		color: $text
+		background-color: #fff
+		box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)
+		height: 55px
+	&__btn
+		height: 55px
+		line-height: 55px
+		font-family: "PFDinTextPro", sans-serif
+		font-size: 15px
+		font-weight: 500
+		color: #ffffff
+		background-color: #ce1b30
+		padding: 0 27px
+		border: none
+		text-transform: uppercase
+		display: inline-block
+		cursor: pointer
+		margin-left: -1px
+		box-shadow: 0px 24px 38px -22px rgba(206, 27, 48, 0.75)
+		transition: transform .5s ease
+		&:hover
+			transform: scale(1.07)
+
+// Стрелка на главном экране
+.arrow
+	display: flex
+	&__title
+		margin-bottom: 0
+.title
+	font-family: "SegoeUI", sans-serif
+	font-weight: 600
+	font-size: 30px
+	position: relative
+	color: #010101
+	&::after
+		content: url(../img/arrow.png)
+		top: 18px
+		padding-left: 25px
+		position: absolute
+
+// Счетчики
+
+$colors: #d0d6e6, #fec3a8, #d0d6e6, #b8e7b8, #d0d6e6, #f5fb96, #d0d6e6, #e3cdfa
+@for $i from 1 through length($colors)
+	.columns__column:nth-child(#{length($colors)}n+#{$i+1})
+		background-color: nth($colors, $i)
+
+// $images: '../img/uslugi1.png', '../img/uslugi2.png', '../img/uslugi3.png', '../img/uslugi4.png', '../img/uslugi5.png', '../img/uslugi6.png', '../img/uslugi7.png', '../img/uslugi8.png'
+// @for $i from 1 through length($images)
+// 	.columns__column:nth-child(#{length($images)}n+#{$i+1}) .columns__body::before
+//     	content: url(nth($images, $i))
+
+@for $i from 1 through 20
+	.columns__column:nth-child(#{$i+1}) .columns__body::before
+		content: url('../img/uslugi#{$i}.png')
+
+@for $i from 5 through 20
+	.columns__column:nth-child(#{$i})
+		order: #{$i}
+		-webkit-box-ordinal-group: #{$i}
+		flex-order: #{$i}
+
+
+// Main
+.main
+	background-color: #fff
+
+// Колонки
+.columns
+	margin-bottom: 21px
+	&__row
+		display: flex
+		flex-wrap: wrap
+		font-size: 0
+	&__column
+		flex: 1 0 33.333%
+		z-index: 1
+		transition: all .5s ease
+		overflow: hidden
+		// &:nth-child(1)
+		// 	order: 1
+		// 	-webkit-box-ordinal-group: 1
+		//     flex-order: 1
+		&:hover
+			box-shadow: 1px 1px 16px 0px rgba(50, 50, 50, 0.53)
+			z-index: 2
+		&:nth-child(2)
+			order: 1
+			-webkit-box-ordinal-group: 1
+			flex-order: 1
+		&:nth-child(3)
+			order: 2
+			-webkit-box-ordinal-group: 2
+			flex-order: 2
+		&:nth-child(4)
+			order: 3
+			-webkit-box-ordinal-group: 3
+			flex-order: 3
+	&__plus
+		padding: 50px 60px 50px 60px
+		background-color: #fff
+		width: 100%
+		order: 4
+		-webkit-box-ordinal-group: 4
+		flex-order: 4
+	&__body
+		padding: 70px 35px 52px 58px
+		display: flex
+		flex-direction: column
+		min-height: 100%
+		position: relative
+		&::before
+			position: absolute
+			content: ''
+			top: 33px
+			right: -20px
+	&__title
+		font-family: "PFDinTextPro", sans-serif
+		font-weight: bold
+		font-size: 30px
+		color: $text
+		line-height: 1.5
+		text-decoration: underline
+	&__list
+		margin-top: 46px
+		flex: 1 1 auto
+		li
+			font-family: "SegoeUI", sans-serif
+			font-weight: bold
+			font-size: 17px
+	&__checkbox
+		margin-top: 65px
+	&__btn-price
+		display: flex
+		justify-content: space-between
+		margin-top: 24px
+	&__btn
+		height: 40px
+		line-height: 40px
+		font-family: "PFDinTextPro", sans-serif
+		font-weight: 500
+		font-size: 15px
+		color: $text
+		border: none
+		padding: 0 23px
+		cursor: pointer
+		text-transform: uppercase
+	&__price
+		font-family: "SegoeUI", sans-serif
+		font-weight: 600
+		font-size: 25px
+
+
+//Чекбокс в колонках
+.checkbox
+	margin: 0
+	cursor: pointer
+.checkbox input[type="checkbox"]
+	height: 0
+	opacity: 0
+	width: 0
+.checkbox input[type="checkbox"]:checked + .lever::after
+	background-color: #ffd400
+	content: "\f00c"
+	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands'
+	font-weight: 900
+	color: $text
+	text-align: center
+	font-size: 17px
+.checkbox .lever
+	content: ""
+	position: relative
+.checkbox .lever::after
+	background-color: transparent
+	border: 3px solid black
+	content: ""
+	display: block
+	left: 0px
+	position: absolute
+	top: 0px
+	width: 31px
+	height: 31px
+input[type="checkbox"] + .lever + span::after
+	content: "выбрать услугу"
+	padding-left: 55px
+	display: block
+	font-family: "PFDinTextPro", sans-serif
+	font-size: 17px
+input[type="checkbox"]:checked + .lever.act + span::after
+	content: "услуга добавлена"
+	font-family: "PFDinTextPro", sans-serif
+	font-size: 17px
+
+
+// Строка между колонками
+.plus
+	display: flex
+	flex-direction: column
+	&__descr
+		display: flex
+		transition: all .5s
+		transform: translateX(-25px)
+		&.on
+			opacity: 1
+			transform: translateX(0px)
+	strong
+		font-family: "SegoeUI", sans-serif
+		font-weight: bold
+		font-size: 20px
+		color: #b02133
+	p
+		padding: 0 0 0 90px
+		margin: 0
+		font-size: 20px
+		color: $text
+
+//Мужчина в колонках
+.column_m
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	background-color: #fff !important
+	padding: 70px 50px 52px 50px
+	&__image
+		img
+			max-width: 100%
+	&__text
+		display: flex
+		padding-top: 54px
+		img
+			width: 32px
+			height: 32px
+			max-width: 100%
+			margin: 6px 20px 0 0
+		p
+			line-height: 1.4
+			font-size: 20px
+			margin: 0
+
+
+
+// Корзина
+.basket
+	background-color: #50525f
+	padding: 90px 0
+	display: flex
+	&__row
+		display: flex
+	&__column
+		padding: 0 20px 0 0
+		&:nth-child(1)
+			flex-grow: 0
+			flex-shrink: 1
+			flex-basis: 150 / 1400 * 100%
+			padding-top: 0
+		&:nth-child(2)
+			flex-grow: 0
+			flex-shrink: 1
+			flex-basis: 750 / 1400 * 100%
+			padding-top: 60px
+		&:nth-child(3)
+			flex-grow: 0
+			flex-shrink: 1
+			flex-basis: 500 / 1400 * 100%
+			padding: 40px 0 0 100px
+	&__title
+		color: #fff
+		line-height: 38px
+		font-size: 30px
+		font-family: "SegoeUI", sans-serif
+		font-weight: 600
+	&__list
+		color: #fff
+		li
+			display: flex
+			justify-content: space-between
+			margin-bottom: 15px
+			&:hover
+				cursor: pointer
+			a
+				border-bottom: 1px solid #fff
+				color: #fff
+				&::before
+					border-left: 6px solid #fff
+				&:hover
+					border-bottom: none
+	&__col
+		display: flex
+	&__price
+		font-size: 17px
+		margin-left: 15px
+	&__delete
+		width: 20px
+		height: 20px
+		cursor: pointer
+		position: relative
+		margin-left: 45px
+		margin-top: 5px
+		span
+			background-color: #ac993b
+			width: 100%
+			height: 2px
+			position: absolute
+			&:first-child
+				transform: rotate(-45deg)
+				top: 9px
+			&:last-child
+				transform: rotate(45deg)
+				bottom: 9px
+	&__sum
+		margin-top: 108px
+		display: flex
+		justify-content: flex-end
+		align-items: flex-end
+		margin-right: 70px
+		position: relative
+		p
+			font-family: "Arial", sans-serif
+			font-weight: bold
+			font-size: 17px
+			color: #ffffff
+			margin: 0
+		span
+			margin-left: 30px
+			font-family: "Arial", sans-serif
+			font-weight: bold
+			font-size: 30px
+			color: #f5d21f
+			line-height: 30px
+	&__arrow
+		position: absolute
+		bottom: 0
+		left: -140px
+	&__form-title
+		font-size: 20px
+		color: #ffffff
+		text-align: center
+		margin-bottom: 70px
+	&__form
+		display: block
+		text-align: right
+		input
+			width: 100%
+			margin-bottom: 1px
+	&__btn-r
+		margin: 12px 0 0 0
+
+
+
+// Ремонт
+
+.repairs
+	background-color: #fff
+	padding: 90px 0
+	&__row
+		display: flex
+		align-items: center
+		margin: 0 -15px 0 0
+		&:last-child
+			border-bottom: 1px solid #d5d5d5
+	&__column
+		flex: 0 1 50%
+		padding: 0 15px 0 0
+	&__subtitle
+		font-size: 20px
+		line-height: 33px
+		color: $text
+		span
+			background-color: #e6e6e6
+	&__title
+		font-family: "PFDinTextPro", sans-serif
+		font-weight: 500
+		font-size: 54px
+		line-height: 58px
+		color: $text
+		padding-top: 30px
+	&__text
+		padding-top: 50px
+		font-size: 17px
+		line-height: 33px
+		color: $text
+	img
+		max-width: 100%
+	&__list
+		display: flex
+		justify-content: space-between
+		padding: 120px 0 45px 0
+		margin: 0
+	&__item
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin: 0 4% 0 0
+		transition: all .5s
+		transform: translateY(-25px)
+		&.on
+			opacity: 1
+			transform: translateY(0px)
+		&:last-child
+			margin: 0
+		p
+			padding: 0 0 0 10%
+			font-size: 20px
+			color: $text
+.soc
+	display: flex
+	margin: 60px 0 0 0
+	&__icons
+		display: flex
+		margin: 0
+		padding: 0
+		li
+			padding: 0 21px 0 0
+			&:last-child
+				padding: 0 34px 0 0
+			&:hover .fab
+				color: #2f69c0
+			&:hover:nth-child(2) .fab
+				color: #b02133
+			.fab
+				color: #737373
+	&__text
+		font-family: "SegoeUI", sans-serif
+		font-weight: bold
+		font-size: 15px
+		color: $text
+
+
+
+// Позвонить
+
+.call
+	padding-top: 0
+	padding-bottom: 85px
+	background: url(../img/bg.png) no-repeat
+	background-size: cover
+	text-align: center
+	&__row
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+	&__title
+		font-family: "PFDinTextPro", sans-serif
+		font-weight: 500
+		font-size: 33px
+		color: $text
+		margin-top: 50px
+	&__subtitle
+		font-size: 17px
+		color: #737373
+		margin-top: 20px
+	&__form
+		margin-top: 55px
+		input
+			width: 300px
+	&__question
+		font-family: "PFDinTextPro", sans-serif
+		font-weight: 500
+		font-size: 17px
+		color: $text
+		margin-top: 80px
+		span
+			color: #b02133
+			&:first-child
+				padding-right: 20px
+
+
+
+
+// Слайдер
+
+.reviews
+	background-color: #fff
+	padding: 70px 0
+	&__row
+		display: flex
+		flex-direction: column
+	.title:after
+		top: 11px
+		padding-left: 42px
+	&__slider
+		margin: 50px 0
+		position: relative
+		height: 350px
+.swiper-container
+	width: 100%
+	height: 100%
+	margin-left: auto
+	margin-right: auto
+.swiper-slide
+	font-size: 18px
+	background: #fff
+	/* Center slide text vertically */
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-shrink: 0
+.swiper-pagination-bullet-active
+	background-color: $text
+	outline: none
+
+
+.slider
+	&__slide
+		display: flex
+		justify-content: center
+		align-items: center
+	&__img
+		flex: 0 1 25%
+	&__text
+		flex: 0 1 75%
+		margin: 0 90px
+	&__name
+		font-size: 20px
+		color: #737373
+	&__quote
+		font-family: "SegoeUI", sans-serif
+		font-weight: bold
+		font-size: 24px
+		line-height: 28px
+		color: $text
+		text-decoration: underline
+		margin-top: 24px
+	&__answer
+		font-size: 17px
+		color: $text
+		line-height: 33px
+		margin-top: 40px
+	&__soc
+		margin-top: 50px
+		.fab
+			color: #a8a8a8
+			margin-right: 19px
+		a
+			font-size: 17px
+			color: $text
+
+
+// Подвал
+
+.footer
+	position: relative
+	background-color: #f5d21f
+	z-index: 1
+	&__row
+		display: flex
+		justify-content: space-between
+		padding: 30px 0
+	&__column
+		display: flex
+		flex-direction: column
+		min-height: 100%
+		position: relative
+	&__menu
+		flex: 1 1 auto
+	// Меню с треугольниками
+	.menu__list-d
+		flex-direction: row
+		margin-bottom: 15px
+		padding: 0
+		li
+			margin: 0 38px 10px 0
+			padding: 0 0 0 16px
+			position: relative
+	.copyright
+		font-size: 11px
+		color: $text
+		display: flex
+		&__rights
+			margin-right: 33px
+	.phone
+		&__body
+			align-items: flex-end
+		&__time
+			margin-top: 9px
+			font-size: 15px
+			line-height: 33px
+			font-style: italic
+
+
+#modal_form
+	width: 84%
+	border-radius: 5px
+	background: #fff
+	position: fixed
+	top: 50%
+	left: 50%
+	margin-top: -225px
+	margin-left: -42%
+	display: none
+	opacity: 1
+	z-index: 5
+	&.active
+		background-color: #f5d21f
+#modal_form #modal_close
+	width: 21px
+	height: 21px
+	position: absolute
+	top: 10px
+	right: 10px
+	cursor: pointer
+	display: block
+#overlay
+	z-index: 3
+	position: fixed
+	background-color: $text
+	opacity: 0.8
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+	cursor: pointer
+	display: none
+.modal-form
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	padding: 32px
+	text-align: center
+	opacity: 1
+	&__title
+		font-family: "PFDinTextPro", sans-serif
+		font-size: 32px
+		font-weight: 500
+		color: $text
+		margin-top: 20px
+		span
+			border-bottom: 2px solid #000
+	&__form
+		margin-top: 35px
+		input
+			background-color: #e8e8e8
+	&__text
+		font-family: "SegoeUI", sans-serif
+		font-size: 15px
+		color: $text
+		margin-top: 50px
+.modal-form.active
+	display: none
+
+.success
+	display: none
+	opacity: 0
+	text-align: center
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	padding: 32px
+	width: 100%
+	height: 100%
+	&__title
+		font-family: "PFDinTextPro", sans-serif
+		font-size: 35px
+		font-weight: 500
+		color: $text
+		span
+			color: #b02133
+	&__subtitle
+		font-family: "SegoeUI", sans-serif
+		font-size: 15px
+		color: $text
+	&__img
+		margin-top: 20px
+		img
+			width: 350px
+	&__list
+		display: flex
+		padding: 0
+		margin-top: 15px
+		li
+			color: #fff
+			padding-right: 10px
+			&:last-child
+				padding-right: 0
+	&__text
+		p
+			font-family: "SegoeUI", sans-serif
+			font-size: 17px
+			color: $text
+		span
+			text-decoration: underline
+		.fas
+			margin: 0 8px
+	&__tel
+		font-weight: bold
+
+
+.top
+	position: fixed
+	bottom: 25px
+	right: -100px
+	background-color: #e0e0e0
+	z-index: 10
+	border-radius: 10em
+	color: #666666
+	font-size: 26px
+	width: 50px
+	height: 50px
+	text-align: center
+	line-height: 50px
+	cursor: pointer
+	transition: all .3s ease
+	opacity: .8
+	overflow: hidden
+	&:hover
+		color: #fff
+		background-color: #f5d21f
+		opacity: 1
+	&.active
+		right: 25px
+
+
+@import "media" // Always at the end
